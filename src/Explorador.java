@@ -25,4 +25,27 @@ public class Explorador {
     public void setPosicionActual(Posicion posicionActual) {
         this.posicionActual = posicionActual;
     }
+
+    public void moverse(int direccion) {
+        int nuevaFila = posicionActual.getCoordenadaFila();
+        int nuevaCol = posicionActual.getCoordenadaCol();
+
+        switch (direccion) {
+            case ARRIBA:
+                if (nuevaFila > 0) nuevaFila--;
+                break;
+            case ABAJO:
+                if (nuevaFila < 5) nuevaFila++;
+                break;
+            case DERECHA:
+                if (nuevaCol < 19) nuevaCol++;
+                break;
+            case IZQUIERDA:
+                if (nuevaCol > 0) nuevaCol--;
+                break;
+        }
+
+        posicionActual.setCoordenadaFila(nuevaFila);
+        posicionActual.setCoordenadaCol(nuevaCol);
+    }
 }
